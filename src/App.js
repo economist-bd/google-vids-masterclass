@@ -319,6 +319,26 @@ const CoverPage = ({ onStart }) => (
 const ChapterList = ({ onSelectChapter }) => {
   return (
     <div className="pb-24 pt-6 px-4 max-w-lg mx-auto">
+    // --- AD COMPONENT ---
+const NativeAd = () => {
+  React.useEffect(() => {
+    const script = document.createElement('script');
+    script.src = "https://pl28472076.effectivegatecpm.com/52d77440e5409b32a4c88f424094161c/invoke.js";
+    script.async = true;
+    script.dataset.cfasync = "false";
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  return (
+    <div className="flex justify-center items-center my-4 overflow-hidden bg-gray-50 rounded-lg min-h-[100px]">
+      <div id="container-52d77440e5409b32a4c88f424094161c"></div>
+    </div>
+  );
+};
       <div className="flex items-center gap-2 mb-8 border-b border-gray-100 pb-4">
         <Video className="text-purple-600" size={28} />
         <h2 className="text-2xl font-bold text-gray-800">কোর্স মডিউল</h2>
