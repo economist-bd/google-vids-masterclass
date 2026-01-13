@@ -1,6 +1,32 @@
-import React, { useState } from 'react';
-import { Play, Video, Clapperboard, Share2, X, ArrowRight, DollarSign,  ChevronRight, Home, User, Layers, MonitorPlay, Mic, Briefcase } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Play, Video, Clapperboard, Share2, X, ArrowRight, DollarSign, ChevronRight, Home, User, Layers, MonitorPlay, Mic, Briefcase } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+
+// --- AD COMPONENT (Native Banner) ---
+const NativeAd = () => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = "https://pl28472076.effectivegatecpm.com/52d77440e5409b32a4c88f424094161c/invoke.js";
+    script.async = true;
+    script.dataset.cfasync = "false";
+    
+    // Check if script is already added to avoid duplicates
+    if (!document.querySelector(`script[src="${script.src}"]`)) {
+        document.body.appendChild(script);
+    }
+
+    return () => {
+      // Optional: Cleanup if needed, but for ads often better to leave managed by network
+      // document.body.removeChild(script); 
+    };
+  }, []);
+
+  return (
+    <div className="flex justify-center items-center my-6 overflow-hidden bg-gray-50 rounded-xl min-h-[120px] border border-gray-100 shadow-sm">
+      <div id="container-52d77440e5409b32a4c88f424094161c"></div>
+    </div>
+  );
+};
 
 // --- DATA: 30 CHAPTERS CONTENT (Detailed & Cleaned) ---
 const chaptersData = [
@@ -318,26 +344,7 @@ const CoverPage = ({ onStart }) => (
 
 const ChapterList = ({ onSelectChapter }) => {
   return (
-    <div className="pb-24 pt-6 px-4 max-w-lg mx-auto">
-    // --- AD COMPONENT ---
-const NativeAd = () => {
-  React.useEffect(() => {
-    const script = document.createElement('script');
-    script.src = "https://pl28472076.effectivegatecpm.com/52d77440e5409b32a4c88f424094161c/invoke.js";
-    script.async = true;
-    script.dataset.cfasync = "false";
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-  return (
-    <div className="flex justify-center items-center my-4 overflow-hidden bg-gray-50 rounded-lg min-h-[100px]">
-      <div id="container-52d77440e5409b32a4c88f424094161c"></div>
-    </div>
-  );
-};
+    <div className="pb-24 pt-6 px-4 max-w-lg mx-auto">    
       <div className="flex items-center gap-2 mb-8 border-b border-gray-100 pb-4">
         <Video className="text-purple-600" size={28} />
         <h2 className="text-2xl font-bold text-gray-800">কোর্স মডিউল</h2>
