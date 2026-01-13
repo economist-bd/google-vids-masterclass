@@ -332,7 +332,6 @@ const NativeAd = () => {
       document.body.removeChild(script);
     };
   }, []);
-
   return (
     <div className="flex justify-center items-center my-4 overflow-hidden bg-gray-50 rounded-lg min-h-[100px]">
       <div id="container-52d77440e5409b32a4c88f424094161c"></div>
