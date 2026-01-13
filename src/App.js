@@ -342,10 +342,17 @@ const CoverPage = ({ onStart }) => (
   </div>
 );
 
+// আপনার NativeAd কম্পোনেন্টটি উপরে যেমন ছিল তেমনই থাকবে
+// শুধু নিচের ChapterList অংশটুকু আপডেট করুন:
+
 const ChapterList = ({ onSelectChapter }) => {
   return (
-    <div className="pb-24 pt-6 px-4 max-w-lg mx-auto">    
-      <div className="flex items-center gap-2 mb-8 border-b border-gray-100 pb-4">
+    <div className="pb-24 pt-6 px-4 max-w-lg mx-auto">
+      
+      {/* ১. এইখানে অ্যাডটি বসিয়ে দিন, তাহলে এরর চলে যাবে */}
+      <NativeAd />
+      
+      <div className="flex items-center gap-2 mb-8 border-b border-gray-100 pb-4 mt-6">
         <Video className="text-purple-600" size={28} />
         <h2 className="text-2xl font-bold text-gray-800">কোর্স মডিউল</h2>
       </div>
@@ -364,19 +371,15 @@ const ChapterList = ({ onSelectChapter }) => {
                 onClick={() => onSelectChapter(chapter)}
                 className="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-between cursor-pointer hover:shadow-md hover:border-purple-100 transition-all"
               >
-                <div className="flex items-center gap-4 w-full"> {/* w-full যোগ করা হয়েছে */}
-                  <div className="bg-purple-50 text-2xl w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-xl text-purple-600"> {/* flex-shrink-0 যোগ করা হয়েছে */}
+                <div className="flex items-center gap-4 w-full">
+                  <div className="bg-purple-50 text-2xl w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-xl text-purple-600">
                     {chapter.icon}
                   </div>
                   <div className="flex-1 min-w-0">
                     <h4 className="font-bold text-gray-800 text-sm md:text-base truncate">{chapter.id}. {chapter.title}</h4>
-                    
-                    {/* 👇 মূল পরিবর্তন এখানে করা হয়েছে 👇 */}
                     <p className="text-xs text-gray-500 line-clamp-2 leading-relaxed mt-1">
                       {chapter.concept}
                     </p>
-                    {/* 👆 truncate সরিয়ে line-clamp-2 দেওয়া হয়েছে 👆 */}
-                    
                   </div>
                 </div>
                 <ChevronRight size={18} className="text-gray-300 flex-shrink-0 ml-2" />
